@@ -10,14 +10,16 @@
         "framework"
     ],
     "require": {
-        "php": "^7.3 || ~8.0.0",
+        "php": "^7.3",
         "laminas/laminas-component-installer": "^2.4",
         "laminas/laminas-development-mode": "^3.2",
         "laminas/laminas-skeleton-installer": "^0.3",
         "laminas/laminas-mvc": "^3.1.1",
         "laminas/laminas-db": "^2.15",
         "laminas/laminas-form": "^3.1",
-        "laminas/laminas-developer-tools": "^2.3"
+        "laminas/laminas-developer-tools": "^2.3",
+        "laminas/laminas-view": "^2.20",
+        "laminas/laminas-i18n": "^2.15"
     },
     "autoload": {
         "psr-4": {
@@ -44,7 +46,8 @@
         ],
         "serve": "php -S 0.0.0.0:8080 -t public",
         "test": "vendor/bin/phpunit",
-        "static-analysis": "vendor/bin/psalm --shepherd --stats"
+        "static-analysis": "vendor/bin/psalm --shepherd --stats",
+        "initdb": "sqlite3 data/laminastutorial.db < data/schema.sql"
     },
     "scripts-descriptions": {
         "cs-check": "Run coding standards checks.",
@@ -53,7 +56,8 @@
         "development-enable": "Enable development mode.",
         "development-status": "Detail whether or not the application is in development mode.",
         "serve": "Start the built-in PHP web server and serve the application.",
-        "test": "Run unit tests."
+        "test": "Run unit tests.",
+        "initdb": "Write the initial content in the db"
     },
     "config": {
         "allow-plugins": {

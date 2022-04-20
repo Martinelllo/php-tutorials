@@ -4,7 +4,7 @@ namespace Album\Model;
 
 use RuntimeException;
 use Laminas\Db\TableGateway\TableGatewayInterface;
-
+use Laminas\Db\ResultSet\ResultSetInterface;
 class AlbumTable
 {
     private $tableGateway;
@@ -21,8 +21,10 @@ class AlbumTable
 
     public function getAlbum($id)
     {
+        
         $id = (int) $id;
         $rowset = $this->tableGateway->select(['id' => $id]);
+
         $row = $rowset->current();
         if (! $row) {
             throw new RuntimeException(sprintf(
